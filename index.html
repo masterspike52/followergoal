@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Follow Goal Tracker</title>
+    <title>Follow & Gift Goal Tracker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -22,28 +22,30 @@
         }
         .progress-bar {
             background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
-            height: 20px;
-            border-radius: 10px;
-            margin-bottom: 10px;
+            height: 30px; /* Increased height for better visibility */
+            border-radius: 15px; /* Increased border radius */
+            margin-bottom: 20px; /* Increased margin */
         }
         .progress {
             background-color: #4caf50;
             height: 100%;
-            border-radius: 10px;
+            border-radius: 15px; /* Increased border radius */
             width: 0;
         }
         p {
-            font-size: 18px;
+            font-size: 24px; /* Larger font size */
             margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for better contrast */
         }
         button {
             background-color: #4caf50;
             color: white;
             border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
+            border-radius: 10px; /* Increased border radius */
+            padding: 15px 30px; /* Larger button size */
             cursor: pointer;
             transition: background-color 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for better contrast */
         }
         button:hover {
             background-color: #45a049;
@@ -52,41 +54,46 @@
 </head>
 <body>
     <div class="container">
-        <h1>Follow Goal Tracker</h1>
+        <h1>Follow & Gift Goal Tracker</h1>
         <div class="progress-bar">
             <div class="progress" id="progress"></div>
         </div>
         <p id="percentage">0%</p>
-        <p>Goal: <span id="goal">100</span></p>
+        <p>Follow Goal: <span id="followGoal">100</span></p>
         <p>Follow Count: <span id="followCount">0</span></p>
-        <button onclick="editGoal()">Edit Goal</button>
-        <button onclick="editFollowCount()">Edit Follow Count</button>
+        <button onclick="editFollowGoal()">Edit Follow Goal</button>
+        <p>Gift Goal: <span id="giftGoal">50</span></p>
+        <p>Gift Count: <span id="giftCount">0</span></p>
+        <button onclick="editGiftGoal()">Edit Gift Goal</button>
     </div>
 
     <script>
         let currentFollowCount = 0;
-        let currentGoal = 100;
+        let currentFollowGoal = 100;
+        let currentGiftCount = 0;
+        let currentGiftGoal = 50;
 
         function updateProgressBar() {
-            const progress = (currentFollowCount / currentGoal) * 100;
-            document.getElementById("progress").style.width = progress + "%";
-            document.getElementById("percentage").textContent = progress.toFixed(2) + "%";
+            const followProgress = (currentFollowCount / currentFollowGoal) * 100;
+            const giftProgress = (currentGiftCount / currentGiftGoal) * 100;
+            document.getElementById("progress").style.width = Math.min(followProgress, giftProgress) + "%";
+            document.getElementById("percentage").textContent = Math.min(followProgress, giftProgress).toFixed(2) + "%";
         }
 
-        function editGoal() {
-            const newGoal = prompt("Enter new goal:");
-            if (newGoal !== null && !isNaN(newGoal)) {
-                currentGoal = parseInt(newGoal);
-                document.getElementById("goal").textContent = currentGoal;
+        function editFollowGoal() {
+            const newFollowGoal = prompt("Enter new follow goal:");
+            if (newFollowGoal !== null && !isNaN(newFollowGoal)) {
+                currentFollowGoal = parseInt(newFollowGoal);
+                document.getElementById("followGoal").textContent = currentFollowGoal;
                 updateProgressBar();
             }
         }
 
-        function editFollowCount() {
-            const newFollowCount = prompt("Enter new follow count:");
-            if (newFollowCount !== null && !isNaN(newFollowCount)) {
-                currentFollowCount = parseInt(newFollowCount);
-                document.getElementById("followCount").textContent = currentFollowCount;
+        function editGiftGoal() {
+            const newGiftGoal = prompt("Enter new gift goal:");
+            if (newGiftGoal !== null && !isNaN(newGiftGoal)) {
+                currentGiftGoal = parseInt(newGiftGoal);
+                document.getElementById("giftGoal").textContent = currentGiftGoal;
                 updateProgressBar();
             }
         }
