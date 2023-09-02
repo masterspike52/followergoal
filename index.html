@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follower Goal Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .tracker {
+            margin: 20px auto;
+            max-width: 400px;
+        }
+        .progress-container {
+            background-color: #f2f2f2;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .progress-bar {
+            background-color: #4caf50;
+            width: 0%;
+            height: 30px;
+            border-radius: 10px;
+            transition: width 0.3s ease-in-out;
+        }
+        .count {
+            font-size: 20px;
+        }
+        .edit-input {
+            width: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker">
+        <h2>Follower Goal Tracker</h2>
+        <div class="progress-container">
+            <div class="count">Current Followers: <span id="currentCount">1000</span></div>
+            <div class="count">Goal Followers: <span id="goalCount">5000</span></div>
+            <div class="count">Progress: <span id="progressPercent">0%</span></div>
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <div>
+            <label for="editCurrentCount">Edit Current Followers: </label>
+            <input type="number" id="editCurrentCount" class="edit-input" min="0">
+            <button onclick="updateCurrentCount()">Update</button>
+        </div>
+        <div>
+            <label for="editGoalCount">Edit Goal Followers: </label>
+            <input type="number" id="editGoalCount" class="edit-input" min="1">
+            <button onclick="updateGoalCount()">Update</button>
+        </div>
+    </div>
+
+    <script>
+        const currentCountElement = document.getElementById('currentCount');
+        const goalCountElement = document.getElementById('goalCount');
+        const progressBar = document.getElementById('progressBar');
+        const progressPercentElement = document.getElementById('progressPercent');
+
+        function updateProgressBar() {
+            const currentCount = parseInt(currentCountElement.innerText);
+            const goalCount = parseInt(goalCountElement.innerText);
+            const progressPercent = Math.min((currentCount / goalCount) * 100, 100);
+
+            progressBar.style.width = progressPercent + '%';
+            progressPercentElement.innerText = progressPercent.toFixed(2) + '%';
+        }
+
+        function updateCurrentCount() {
+            const newCurrentCount = parseInt(document.getElementById('editCurrentCount').value);
+            if (!isNaN(newCurrentCount)) {
+                currentCountElement.innerText = newCurrentCount;
+                updateProgressBar();
+            }
+        }
+
+        function updateGoalCount() {
+            const newGoalCount = parseInt(document.getElementById('editGoalCount').value);
+            if (!isNaN(newGoalCount) && newGoalCount >= 1) {
+                goalCountElement.innerText = newGoalCount;
+                updateProgressBar();
+            }
+        }
+
+        // Initialize progress bar
+        updateProgressBar();
+    </script>
+</body>
+</html>
