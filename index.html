@@ -24,6 +24,7 @@
             width: 48%; /* 48% width for each column to leave some space */
             display: inline-block;
             vertical-align: top;
+            margin: 0 1%; /* Added margin for spacing between columns */
         }
         .progress-bar {
             background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
@@ -60,25 +61,29 @@
 <body>
     <div class="container">
         <h1>Follow & Gift Goal Tracker</h1>
+        
+        <!-- Follow Goal Section -->
         <div class="column">
-            <!-- Follow Goal Section -->
+            <h2>Follow Goal</h2>
             <div class="progress-bar">
                 <div class="progress" id="followProgress"></div>
             </div>
-            <p>Follow Goal: <span id="followGoal">100</span></p>
-            <p>Follow Count: <span id="followCount">0</span></p>
-            <button onclick="editFollowGoal()">Edit Follow Goal</button>
-            <button onclick="editFollowCount()">Edit Follow Count</button>
+            <p>Goal: <span id="followGoal">100</span></p>
+            <p>Count: <span id="followCount">0</span></p>
+            <button onclick="editFollowGoal()">Edit Goal</button>
+            <button onclick="editFollowCount()">Edit Count</button>
         </div>
+
+        <!-- Gift Goal Section -->
         <div class="column">
-            <!-- Gift Goal Section -->
+            <h2>Gift Goal</h2>
             <div class="progress-bar">
                 <div class="progress" id="giftProgress"></div>
             </div>
-            <p>Gift Goal: <span id="giftGoal">50</span></p>
-            <p>Gift Count: <span id="giftCount">0</span></p>
-            <button onclick="editGiftGoal()">Edit Gift Goal</button>
-            <button onclick="editGiftCount()">Edit Gift Count</button>
+            <p>Goal: <span id="giftGoal">50</span></p>
+            <p>Count: <span id="giftCount">0</span></p>
+            <button onclick="editGiftGoal()">Edit Goal</button>
+            <button onclick="editGiftCount()">Edit Count</button>
         </div>
     </div>
 
