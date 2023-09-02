@@ -12,13 +12,18 @@
             padding: 0;
         }
         .container {
-            max-width: 400px;
+            max-width: 800px; /* Increased max-width for two columns */
             margin: 0 auto;
             text-align: center;
             background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
             border-radius: 10px;
             padding: 20px;
             color: white;
+        }
+        .column {
+            width: 48%; /* 48% width for each column to leave some space */
+            display: inline-block;
+            vertical-align: top;
         }
         .progress-bar {
             background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
@@ -55,24 +60,26 @@
 <body>
     <div class="container">
         <h1>Follow & Gift Goal Tracker</h1>
-        
-        <!-- Follow Goal Section -->
-        <div class="progress-bar">
-            <div class="progress" id="followProgress"></div>
+        <div class="column">
+            <!-- Follow Goal Section -->
+            <div class="progress-bar">
+                <div class="progress" id="followProgress"></div>
+            </div>
+            <p>Follow Goal: <span id="followGoal">100</span></p>
+            <p>Follow Count: <span id="followCount">0</span></p>
+            <button onclick="editFollowGoal()">Edit Follow Goal</button>
+            <button onclick="editFollowCount()">Edit Follow Count</button>
         </div>
-        <p>Follow Goal: <span id="followGoal">100</span></p>
-        <p>Follow Count: <span id="followCount">0</span></p>
-        <button onclick="editFollowGoal()">Edit Follow Goal</button>
-        <button onclick="editFollowCount()">Edit Follow Count</button>
-
-        <!-- Gift Goal Section -->
-        <div class="progress-bar">
-            <div class="progress" id="giftProgress"></div>
+        <div class="column">
+            <!-- Gift Goal Section -->
+            <div class="progress-bar">
+                <div class="progress" id="giftProgress"></div>
+            </div>
+            <p>Gift Goal: <span id="giftGoal">50</span></p>
+            <p>Gift Count: <span id="giftCount">0</span></p>
+            <button onclick="editGiftGoal()">Edit Gift Goal</button>
+            <button onclick="editGiftCount()">Edit Gift Count</button>
         </div>
-        <p>Gift Goal: <span id="giftGoal">50</span></p>
-        <p>Gift Count: <span id="giftCount">0</span></p>
-        <button onclick="editGiftGoal()">Edit Gift Goal</button>
-        <button onclick="editGiftCount()">Edit Gift Count</button>
     </div>
 
     <script>
