@@ -24,7 +24,7 @@ html, body, .tracker {
 
 .progress-bar {
     background-color: #4caf50;
-    width: 0%;
+    width: 0;
     height: 30px;
     border-radius: 10px;
     transition: width 0.3s ease-in-out;
