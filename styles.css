@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: transparent; /* Set the background of the whole page to transparent */
+}
+
+.tracker {
+    margin: 20px auto;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.5); /* Add a semi-transparent white background */
+    border-radius: 10px;
+    padding: 20px;
+    backdrop-filter: blur(10px); /* Apply a blur effect to the background for better readability */
+}
+
+.progress-container {
+    background: transparent; /* Set the background of the container to transparent */
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.progress-bar {
+    background-color: #4caf50;
+    width: 0%;
+    height: 30px;
+    border-radius: 10px;
+    transition: width 0.3s ease-in-out;
+}
+
+.count {
+    font-size: 20px;
+}
+
+.edit-input {
+    width: 50px;
+    text-align: center;
+}
