@@ -7,20 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: transparent; /* Set the background to transparent */
-            margin: 0; /* Remove default margin */
-            padding: 0; /* Remove default padding */
+            background: transparent;
+            margin: 0;
+            padding: 0;
         }
         .container {
             max-width: 400px;
             margin: 0 auto;
             text-align: center;
-            background: transparent; /* Set the background to transparent */
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
             border-radius: 10px;
             padding: 20px;
+            color: white;
         }
         .progress-bar {
-            background-color: #ccc;
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white background */
             height: 20px;
             border-radius: 10px;
             margin-bottom: 10px;
@@ -30,6 +31,22 @@
             height: 100%;
             border-radius: 10px;
             width: 0;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
