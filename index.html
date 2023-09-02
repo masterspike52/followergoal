@@ -63,6 +63,7 @@
         <p>Follow Goal: <span id="followGoal">100</span></p>
         <p>Follow Count: <span id="followCount">0</span></p>
         <button onclick="editFollowGoal()">Edit Follow Goal</button>
+        <button onclick="editFollowCount()">Edit Follow Count</button>
 
         <!-- Gift Goal Section -->
         <div class="progress-bar">
@@ -71,6 +72,7 @@
         <p>Gift Goal: <span id="giftGoal">50</span></p>
         <p>Gift Count: <span id="giftCount">0</span></p>
         <button onclick="editGiftGoal()">Edit Gift Goal</button>
+        <button onclick="editGiftCount()">Edit Gift Count</button>
     </div>
 
     <script>
@@ -97,11 +99,27 @@
             }
         }
 
+        function editFollowCount() {
+            const newFollowCount = prompt("Enter new follow count:");
+            if (newFollowCount !== null && !isNaN(newFollowCount)) {
+                currentFollowCount = parseInt(newFollowCount);
+                updateProgressBar();
+            }
+        }
+
         function editGiftGoal() {
             const newGiftGoal = prompt("Enter new gift goal:");
             if (newGiftGoal !== null && !isNaN(newGiftGoal)) {
                 currentGiftGoal = parseInt(newGiftGoal);
                 document.getElementById("giftGoal").textContent = currentGiftGoal;
+                updateProgressBar();
+            }
+        }
+
+        function editGiftCount() {
+            const newGiftCount = prompt("Enter new gift count:");
+            if (newGiftCount !== null && !isNaN(newGiftCount)) {
+                currentGiftCount = parseInt(newGiftCount);
                 updateProgressBar();
             }
         }
