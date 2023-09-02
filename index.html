@@ -4,40 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Follower Goal Tracker</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: transparent; /* Set the background of the whole page to transparent */
-        }
-        .tracker {
-            margin: 20px auto;
-            max-width: 400px;
-            background: rgba(255, 255, 255, 0.5); /* Add a semi-transparent white background */
-            border-radius: 10px;
-            padding: 20px;
-            backdrop-filter: blur(10px); /* Apply a blur effect to the background for better readability */
-        }
-        .progress-container {
-            background: transparent; /* Set the background of the container to transparent */
-            padding: 10px;
-            border-radius: 10px;
-        }
-        .progress-bar {
-            background-color: #4caf50;
-            width: 0%;
-            height: 30px;
-            border-radius: 10px;
-            transition: width 0.3s ease-in-out;
-        }
-        .count {
-            font-size: 20px;
-        }
-        .edit-input {
-            width: 50px;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="tracker">
@@ -60,39 +27,6 @@
         </div>
     </div>
 
-    <script>
-        const currentCountElement = document.getElementById('currentCount');
-        const goalCountElement = document.getElementById('goalCount');
-        const progressBar = document.getElementById('progressBar');
-        const progressPercentElement = document.getElementById('progressPercent');
-
-        function updateProgressBar() {
-            const currentCount = parseInt(currentCountElement.innerText);
-            const goalCount = parseInt(goalCountElement.innerText);
-            const progressPercent = Math.min((currentCount / goalCount) * 100, 100);
-
-            progressBar.style.width = progressPercent + '%';
-            progressPercentElement.innerText = progressPercent.toFixed(2) + '%';
-        }
-
-        function updateCurrentCount() {
-            const newCurrentCount = parseInt(document.getElementById('editCurrentCount').value);
-            if (!isNaN(newCurrentCount)) {
-                currentCountElement.innerText = newCurrentCount;
-                updateProgressBar();
-            }
-        }
-
-        function updateGoalCount() {
-            const newGoalCount = parseInt(document.getElementById('editGoalCount').value);
-            if (!isNaN(newGoalCount) && newGoalCount >= 1) {
-                goalCountElement.innerText = newGoalCount;
-                updateProgressBar();
-            }
-        }
-
-        // Initialize progress bar
-        updateProgressBar();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
