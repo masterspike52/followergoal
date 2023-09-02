@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow Goal Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: transparent; /* Set the background to transparent */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            background: transparent; /* Set the background to transparent */
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .progress-bar {
+            background-color: #ccc;
+            height: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .progress {
+            background-color: #4caf50;
+            height: 100%;
+            border-radius: 10px;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Follow Goal Tracker</h1>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p id="percentage">0%</p>
+        <p>Goal: <span id="goal">100</span></p>
+        <p>Follow Count: <span id="followCount">0</span></p>
+        <button onclick="editGoal()">Edit Goal</button>
+        <button onclick="editFollowCount()">Edit Follow Count</button>
+    </div>
+
+    <script>
+        let currentFollowCount = 0;
+        let currentGoal = 100;
+
+        function updateProgressBar() {
+            const progress = (currentFollowCount / currentGoal) * 100;
+            document.getElementById("progress").style.width = progress + "%";
+            document.getElementById("percentage").textContent = progress.toFixed(2) + "%";
+        }
+
+        function editGoal() {
+            const newGoal = prompt("Enter new goal:");
+            if (newGoal !== null && !isNaN(newGoal)) {
+                currentGoal = parseInt(newGoal);
+                document.getElementById("goal").textContent = currentGoal;
+                updateProgressBar();
+            }
+        }
+
+        function editFollowCount() {
+            const newFollowCount = prompt("Enter new follow count:");
+            if (newFollowCount !== null && !isNaN(newFollowCount)) {
+                currentFollowCount = parseInt(newFollowCount);
+                document.getElementById("followCount").textContent = currentFollowCount;
+                updateProgressBar();
+            }
+        }
+
+        // Initial update
+        updateProgressBar();
+    </script>
+</body>
+</html>
