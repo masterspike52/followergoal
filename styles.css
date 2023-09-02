@@ -7,10 +7,9 @@ body {
 .tracker {
     margin: 20px auto;
     max-width: 400px;
-    background: rgba(255, 255, 255, 0.5); /* Add a semi-transparent white background */
+    background: transparent; /* Set the background of the tracker to transparent */
     border-radius: 10px;
     padding: 20px;
-    backdrop-filter: blur(10px); /* Apply a blur effect to the background for better readability */
 }
 
 .progress-container {
